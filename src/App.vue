@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-
-    <router-view/>
+    <!-- 使用keep-alive 只发送一次ajax请求，数据将缓存到内存中，提高性能-->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

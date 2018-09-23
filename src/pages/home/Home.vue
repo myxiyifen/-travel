@@ -15,6 +15,7 @@ import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -26,6 +27,7 @@ export default {
   },
   data () {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -35,7 +37,7 @@ export default {
   methods: {
     getHomeInfo () {
       // 当请求以/api开头，api将指向/static/mock ，在config/index.json下配置
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -49,8 +51,19 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted () {
+    this.lastCity = this.city
     this.getHomeInfo()
+  },
+  // 使用keep-alive后城市切换不会重新发送ajax请求，为了解决此问题，如下，keep-alive新增的生命周期函数
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
