@@ -2,7 +2,7 @@
     <div>
       <div class="title">热销推荐</div>
       <ul>
-        <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+        <li class="item border-bottom" v-for="item of list" :key="item.id">
             <img class="item-img" :src="item.imgUrl" alt="" />
           <div class="item-info">
             <p class="item-title">{{item.title}}</p>
@@ -17,36 +17,39 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-        title: '芭拉胡景区',
-        desc: '描述描述描述描述描述'
-      }, {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-        title: '芭拉胡景区',
-        desc: '描述描述描述描述描述'
-      }, {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-        title: '芭拉胡景区',
-        desc: '描述描述描述描述描述'
-      }, {
-        id: '004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-        title: '芭拉胡景区',
-        desc: '描述描述描述描述描述'
-      }, {
-        id: '005',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-        title: '芭拉胡景区',
-        desc: '描述描述描述描述描述'
-      }]
-    }
+  props: {
+    list: Array
   }
+  // data () {
+  //   return {
+  //     recommendList: [{
+  //       id: '001',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
+  //       title: '芭拉胡景区',
+  //       desc: '描述描述描述描述描述'
+  //     }, {
+  //       id: '002',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
+  //       title: '芭拉胡景区',
+  //       desc: '描述描述描述描述描述'
+  //     }, {
+  //       id: '003',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
+  //       title: '芭拉胡景区',
+  //       desc: '描述描述描述描述描述'
+  //     }, {
+  //       id: '004',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
+  //       title: '芭拉胡景区',
+  //       desc: '描述描述描述描述描述'
+  //     }, {
+  //       id: '005',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
+  //       title: '芭拉胡景区',
+  //       desc: '描述描述描述描述描述'
+  //     }]
+  //   }
+  // }
 }
 </script>
 
