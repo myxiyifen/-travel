@@ -38,11 +38,15 @@ export default {
       } else {
         this.showAbs = true
       }
-      console.log(document.documentElement.scrollTop)
     }
   },
   activated () {
+    // 全局绑定，当跳转到其他页面时滑动屏幕依然会执行，需要解绑
     window.addEventListener('scroll', this.handleScroll)
+  },
+  // 解绑
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
