@@ -2,14 +2,20 @@
     <div>
       <div class="title">热销推荐</div>
       <ul>
-        <li class="item border-bottom" v-for="item of list" :key="item.id">
-            <img class="item-img" :src="item.imgUrl" alt="" />
-          <div class="item-info">
-            <p class="item-title">{{item.title}}</p>
-            <p class="item-desc">{{item.desc}}</p>
-            <button class="item-button">查看详情</button>
-          </div>
-        </li>
+        <router-link
+           tag="li"
+           class="item border-bottom"
+           v-for="item of list"
+           :key="item.id"
+           :to="'/detail/' + item.id"
+        >
+              <img class="item-img" :src="item.imgUrl" alt="" />
+            <div class="item-info">
+              <p class="item-title">{{item.title}}</p>
+              <p class="item-desc">{{item.desc}}</p>
+              <button class="item-button">查看详情</button>
+            </div>
+        </router-link>
       </ul>
     </div>
 </template>
@@ -20,36 +26,6 @@ export default {
   props: {
     list: Array
   }
-  // data () {
-  //   return {
-  //     recommendList: [{
-  //       id: '001',
-  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-  //       title: '芭拉胡景区',
-  //       desc: '描述描述描述描述描述'
-  //     }, {
-  //       id: '002',
-  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-  //       title: '芭拉胡景区',
-  //       desc: '描述描述描述描述描述'
-  //     }, {
-  //       id: '003',
-  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-  //       title: '芭拉胡景区',
-  //       desc: '描述描述描述描述描述'
-  //     }, {
-  //       id: '004',
-  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-  //       title: '芭拉胡景区',
-  //       desc: '描述描述描述描述描述'
-  //     }, {
-  //       id: '005',
-  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/c9/c9ab2722d2990967a3.img.jpg_200x200_b4832539.jpg',
-  //       title: '芭拉胡景区',
-  //       desc: '描述描述描述描述描述'
-  //     }]
-  //   }
-  // }
 }
 </script>
 
